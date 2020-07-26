@@ -4,11 +4,17 @@
         <%=form.label :title %>
         <%=form.text_field :title %>
     </div>
+
+     <div class="field">
+        <%=form.label :status %>
+        <%=form.text_field :status %>
+    </div>
+    
       <div class="field">
         <%=form.label :content %>
         <%=form.rich_text_area :content %>
     </div>
-    <div>
-    <%= form.submit %>
+    <div class="margin-top">
+    <%= form.submit "Crear",class:"btn btn-primary" %>
     </div>   
 <%end%>

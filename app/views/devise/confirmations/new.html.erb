@@ -9,8 +9,8 @@
     <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Renviame mensaje de confirmacion" %>
+  <div class="actions margin-top">
+    <%= f.submit "Renviame mensaje de confirmacion", class:"btn btn-primary" %>
   </div>
 <% end %>
 
