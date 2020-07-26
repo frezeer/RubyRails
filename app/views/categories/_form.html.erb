@@ -1,3 +1,4 @@
+<div class="small-container center-block">
 <%= form_with(model: category, local: true) do |form| %>
   <% if category.errors.any? %>
     <div id="error_explanation">
@@ -21,7 +22,8 @@
     <%= form.text_field :color %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions margin-top">
+    <%= form.submit "Crear" , class:"btn btn-primary" %>
   </div>
 <% end %>
+</div>
