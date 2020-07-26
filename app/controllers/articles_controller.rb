@@ -1,29 +1,25 @@
 class ArticlesController < ApplicationController
 
+       """before_action :find_article , only:[:show,:edit,:update,:delete]"""
+       before_action :find_article , except:[:new,:create]
+      
+      
        def show
-        @article = Article.find(params[:id])
        end
 
        def edit
-        """
-            @article = Article.find(params['id'])
-        """    
-             @article = Article.find(params['id'])
-              puts "\n\n\n #{@article.persisted?} \n\n\n"
-            
+        puts "\n\n\n #{@article.persisted?} \n\n\n"
+        puts 'ESTOY ES UN ECHO'
        end 
 
        def update
-         @article = Article.find(params[:id])
          @article.update(title: params[:article][:title],content: params[:article][:content])
 
             redirect_to @article
-       end 
+       end
+
        def new
         @article = Article.new 
-       """
-        @article.title = 'Demo'
-       """  
        end
     
        def create
@@ -32,9 +28,16 @@ class ArticlesController < ApplicationController
        end
 
        def delete
-         @article = Article.find(params[:id])
-         @article.destroy
-         redirect_to root_path
+          @article.destroy
+          redirect_to root_path
+       end 
+
+       """        
+       esta accion hace que el @article pueda ser llamado en todas las funciones sin tener que ponerlas
+       en cada una de ellas en el before action se especifica en cuales funciones no aplica esto
+       """
+       def find_article
+          @article = Article.find(params[:id])
        end 
 
 

@@ -10,8 +10,7 @@ Rails.application.routes.draw do
 
   patch "articles/:id",     to: "articles#update" ,  as: :article
   post  "articles",         to: "articles#create"
-  delete "articles/:id",    to: "articles#destroy"   
-  
+  delete "articles/:id",    to: "articles#delete"   
   
 end
 
