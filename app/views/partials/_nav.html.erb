@@ -10,9 +10,15 @@
         <%= link_to "Escribir" , new_articles_path, class:"nav-link" %>
     </li>
     <% if user_signed_in? %>
-     <li class="nav-item">
+    <li class="nav-item">
         <%= link_to "Cerrar Session" , destroy_user_session_path, method: :delete, class:"nav-link" %>
     </li>
+    <%else%>
+    <li class="nav-item">
+        <%= link_to "Iniciar session" , new_user_session_path,  class:"nav-link" %>
+    </li>
+    <li class="nav-item">
+        <%= link_to "Registrar" , new_user_registration_path,  class:"nav-link" %>
+    </li>
     <%end%>
-
 </nav>

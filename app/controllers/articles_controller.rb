@@ -2,6 +2,8 @@ class ArticlesController < ApplicationController
 
        """before_action :find_article , only:[:show,:edit,:update,:delete]"""
        before_action :find_article , except:[:new,:create,:index]
+       """antes de entrar a estos metodos debes de estar authenticado """
+       before_action :authenticate_user!, only:[:new,:create,:edit,:update,:delete]
       
        def index
         @articles = Article.all
@@ -17,7 +19,6 @@ class ArticlesController < ApplicationController
 
        def update
          @article.update(title: params[:article][:title],content: params[:article][:content])
-
             redirect_to @article
        end
 
